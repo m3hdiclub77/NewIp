@@ -60,3 +60,249 @@
 149.154.174.101|443|403|319|h2|1.0|0|unknown|United States|Telegram Messenger INC
 149.154.175.205|443|302|348|h2|1.0|0|unknown|United States|Telegram Messenger INC
 149.154.175.204|443|302|291|h2|1.0|0|unknown|United States|Telegram Messenger INC
+5.28.193.20|443|301|804|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.49|443|301|910|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.241|443|301|805|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.133|443|301|953|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.22|443|301|781|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.243|443|301|1031|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.142|443|301|965|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.8|443|301|741|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.115|443|301|932|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.105|443|301|604|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.13|443|301|984|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.241|443|301|741|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.113|443|301|730|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.120|443|301|942|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.79|443|301|547|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.55|443|301|963|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.48|443|301|781|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.167|443|301|600|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.23|443|301|1121|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.212|443|301|900|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.11|443|301|516|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.208|443|301|794|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.108|443|301|752|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.100|443|301|1165|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.85|443|301|794|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.165|443|301|614|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.73|443|301|593|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.171|443|301|1038|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.242|443|301|900|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.162|443|301|751|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.38|443|301|868|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.216|443|301|505|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.190|443|301|635|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+95.161.64.99|443|302|508|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+95.161.64.100|443|302|487|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.161.145|443|302|582|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.163.241|443|403|539|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.164.3|443|403|645|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.164.13|443|302|498|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.164.24|443|302|408|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.164.25|443|302|459|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.164.26|443|302|354|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.133|443|302|418|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.137|443|302|418|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.196|443|301|447|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.194|443|301|490|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.195|443|301|428|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.193|443|301|439|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.166.110|443|302|462|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.167.32|443|302|468|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.167.80|443|403|375|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.167.99|443|302|416|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.167.132|443|302|391|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.167.220|443|302|438|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.170.100|443|403|976|http/1.1|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.170.96|443|403|1009|http/1.1|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.170.200|443|403|1080|http/1.1|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.171.236|443|302|762|h2|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.171.237|443|302|819|h2|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.174.101|443|403|319|h2|1.0|0|unknown|United States|Telegram Messenger INC
+149.154.175.205|443|302|348|h2|1.0|0|unknown|United States|Telegram Messenger INC
+149.154.175.204|443|302|291|h2|1.0|0|unknown|United States|Telegram Messenger INC
+5.28.193.20|443|301|813|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.49|443|301|823|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.241|443|301|711|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.133|443|301|665|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.22|443|301|1208|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.243|443|301|813|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.142|443|301|751|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.8|443|301|649|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.115|443|301|770|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.105|443|301|960|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.13|443|301|568|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.241|443|301|762|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.113|443|301|475|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.120|443|301|722|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.79|443|301|660|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.55|443|301|646|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.48|443|301|865|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.167|443|301|578|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.23|443|301|772|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.212|443|301|707|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.11|443|301|967|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.208|443|301|761|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.108|443|301|700|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.100|443|301|865|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.85|443|301|516|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.165|443|301|815|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.73|443|301|926|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.171|443|301|676|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.242|443|301|649|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.162|443|301|946|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.38|443|301|696|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.216|443|301|461|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.190|443|301|783|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+95.161.64.99|443|302|690|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+95.161.64.100|443|302|690|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.161.145|443|302|661|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.163.241|443|403|690|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.164.3|443|403|680|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.164.13|443|302|661|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.164.24|443|302|619|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.164.25|443|302|585|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.164.26|443|302|669|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.133|443|302|867|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.137|443|302|609|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.196|443|301|674|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.194|443|301|684|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.195|443|301|1149|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.193|443|301|1095|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.166.110|443|302|817|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.167.32|443|302|786|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.167.80|443|403|661|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.167.99|443|302|847|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.167.132|443|302|837|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.167.220|443|302|766|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.170.100|443|403|1037|http/1.1|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.170.96|443|403|1027|http/1.1|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.170.200|443|403|1138|http/1.1|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.171.236|443|302|861|h2|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.171.237|443|302|884|http/1.1|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.174.101|443|403|552|h2|1.0|0|unknown|United States|Telegram Messenger INC
+149.154.175.205|443|302|527|h2|1.0|0|unknown|United States|Telegram Messenger INC
+149.154.175.204|443|302|547|h2|1.0|0|unknown|United States|Telegram Messenger INC
+5.28.193.20|443|301|609|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.49|443|301|639|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.241|443|301|954|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.133|443|301|580|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.22|443|301|499|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.243|443|301|549|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.142|443|301|549|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.8|443|301|700|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.115|443|301|922|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.105|443|301|620|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.13|443|301|529|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.241|443|301|559|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.113|443|301|631|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.120|443|301|601|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.79|443|301|589|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.55|443|301|912|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.48|443|301|558|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.167|443|301|499|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.23|443|301|478|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.212|443|301|497|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.11|443|301|497|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.208|443|301|478|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.108|443|301|608|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.100|443|301|697|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.85|443|301|616|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.165|443|301|673|http/1.1|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.73|443|301|700|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.171|443|301|671|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.242|443|301|681|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.162|443|301|694|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.193.38|443|301|644|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.216|443|301|996|http/1.1|0.5|0|unknown|Netherlands|Vodafone Group PLC
+5.28.192.190|443|301|700|h2|1.0|0|unknown|Netherlands|Vodafone Group PLC
+95.161.64.99|443|302|695|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+95.161.64.100|443|302|691|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.161.145|443|302|581|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.163.241|443|403|628|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.164.3|443|403|585|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.164.13|443|302|481|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.164.24|443|302|670|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.164.25|443|302|725|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.164.26|443|302|420|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.133|443|302|451|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.137|443|302|525|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.196|443|301|625|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.194|443|301|859|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.195|443|301|755|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.193|443|301|874|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.166.110|443|302|725|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.167.32|443|302|581|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.167.80|443|403|499|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.167.99|443|302|715|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.167.132|443|302|625|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.167.220|443|302|735|h2|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.170.100|443|403|1033|http/1.1|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.170.96|443|403|1082|http/1.1|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.170.200|443|403|975|http/1.1|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.171.236|443|302|801|http/1.1|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.171.237|443|302|779|http/1.1|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.174.101|443|403|532|h2|1.0|0|unknown|United States|Telegram Messenger INC
+149.154.175.205|443|302|539|h2|1.0|0|unknown|United States|Telegram Messenger INC
+149.154.175.204|443|302|509|http/1.1|1.0|0|unknown|United States|Telegram Messenger INC
+31.13.89.41|443|407|532|http/1.1|1.0|0|unknown|Mexico|Facebook, Inc.
+31.13.89.41|8443|407|532|http/1.1|1.0|0|unknown|Mexico|Facebook, Inc.
+31.13.66.48|443|400|613|h2|1.0|0|unknown|United States|Facebook, Inc.
+31.13.93.34|443|404|548|h2|1.0|0|unknown|United States|Facebook, Inc.
+31.13.89.34|443|404|532|h2|1.0|0|unknown|Mexico|Facebook, Inc.
+31.13.70.201|443|404|549|h2|1.0|0|unknown|United States|Facebook, Inc.
+31.13.82.225|443|404|633|h2|1.0|0|unknown|Japan|Facebook, Inc.
+31.13.89.230|443|404|455|h2|1.0|0|unknown|Mexico|Facebook, Inc.
+31.13.91.222|443|200|587|h2|1.0|0|unknown|Brazil|Facebook, Inc.
+31.13.84.4|443|404|514|http/1.1|1.0|0|unknown|Austria|Facebook, Inc.
+31.13.71.172|443|404|455|h2|1.0|0|unknown|United States|Facebook, Inc.
+31.13.84.52|443|404|519|http/1.1|1.0|0|unknown|Austria|Facebook, Inc.
+31.13.84.35|443|404|530|h2|1.0|0|unknown|Austria|Facebook, Inc.
+31.13.93.51|443|400|530|http/1.1|1.0|0|unknown|United States|Facebook, Inc.
+31.13.66.219|443|404|431|h2|1.0|0|unknown|United States|Facebook, Inc.
+31.13.71.35|443|404|455|h2|1.0|0|unknown|United States|Facebook, Inc.
+31.13.93.38|443|404|516|h2|1.0|0|unknown|United States|Facebook, Inc.
+31.13.70.10|443|400|524|h2|1.0|0|unknown|United States|Facebook, Inc.
+31.13.84.56|443|404|510|h2|1.0|0|unknown|Austria|Facebook, Inc.
+31.13.83.36|443|400|672|h2|1.0|0|unknown|Spain|Facebook, Inc.
+31.13.78.6|443|404|590|h2|1.0|0|unknown|New Zealand|Facebook, Inc.
+31.13.78.225|443|404|609|h2|1.0|0|unknown|New Zealand|Facebook, Inc.
+31.13.87.172|443|404|626|h2|1.0|0|unknown|Taiwan|Facebook, Inc.
+31.13.66.229|443|400|468|http/1.1|1.0|0|unknown|United States|Facebook, Inc.
+31.13.70.161|443|404|571|h2|1.0|0|unknown|United States|Facebook, Inc.
+31.13.91.41|443|404|665|h2|1.0|0|unknown|Brazil|Facebook, Inc.
+31.13.94.230|443|404|619|h2|1.0|0|unknown|Argentina|Facebook, Inc.
+31.13.72.141|443|404|534|h2|1.0|0|unknown|Sweden|Facebook, Inc.
+31.13.94.62|443|404|622|h2|1.0|0|unknown|Argentina|Facebook, Inc.
+31.13.95.168|443|404|669|h2|1.0|0|unknown|Indonesia|Facebook, Inc.
+31.13.95.26|443|400|672|http/1.1|1.0|0|unknown|Indonesia|Facebook, Inc.
+31.13.69.39|443|404|684|h2|1.0|0|unknown|Italy|Facebook, Inc.
+31.13.69.1|443|400|802|h2|1.0|0|unknown|Italy|Facebook, Inc.
+31.13.73.161|443|404|676|http/1.1|1.0|0|unknown|Ireland|Facebook, Inc.
+31.13.82.168|443|404|557|h2|1.0|0|unknown|Japan|Facebook, Inc.
+31.13.80.161|443|404|242|h2|1.0|0|unknown|Canada|Facebook, Inc.
+31.13.71.52|443|404|520|h2|1.0|0|unknown|United States|Facebook, Inc.
+31.13.83.174|443|404|610|h2|1.0|0|unknown|Spain|Facebook, Inc.
+31.13.87.49|443|400|820|h2|1.0|0|unknown|Taiwan|Facebook, Inc.
+31.13.87.5|443|404|637|h2|1.0|0|unknown|Taiwan|Facebook, Inc.
+31.13.64.5|443|404|760|h2|1.0|0|unknown|India|Facebook, Inc.
+31.13.95.169|443|400|1113|h2|1.0|0|unknown|Indonesia|Facebook, Inc.
+31.13.73.40|443|404|664|http/1.1|1.0|0|unknown|Ireland|Facebook, Inc.
+31.13.82.63|443|404|613|h2|1.0|0|unknown|Japan|Facebook, Inc.
+31.13.69.197|443|404|696|h2|1.0|0|unknown|Italy|Facebook, Inc.
+57.144.209.32|443|404|707|h2|1.0|0|unknown|India|Facebook, Inc.
+57.144.78.152|443|404|242|h2|1.0|0|unknown|United States|Facebook, Inc.
+57.144.207.141|443|400|771|h2|1.0|0|unknown|Argentina|Facebook, Inc.
+57.144.192.33|443|404|692|h2|1.0|0|unknown|Indonesia|Facebook, Inc.
+57.144.239.191|443|404|651|h2|1.0|0|unknown|United Kingdom|Facebook, Inc.
+57.144.229.180|443|200|731|h2|1.0|0|unknown|Philippines|Facebook, Inc.
+57.144.172.129|443|404|133|h2|1.0|0|unknown|United States|Facebook, Inc.
+57.144.175.129|443|404|63|h2|1.0|0|unknown|United States|Facebook, Inc.
+57.144.210.35|443|404|707|h2|1.0|0|unknown|India|Facebook, Inc.
+57.144.240.146|443|200|629|h2|1.0|0|unknown|United Kingdom|Facebook, Inc.
+57.144.56.1|443|400|940|h2|1.0|0|unknown|India|Facebook, Inc.
+57.144.56.3|443|404|717|h2|1.0|0|unknown|India|Facebook, Inc.
+57.144.137.180|443|200|449|h2|1.0|0|unknown|Brazil|Facebook, Inc.
+57.144.55.146|443|400|696|h2|1.0|0|unknown|India|Facebook, Inc.
+66.220.149.254|443|404|235|http/1.1|1.0|0|unknown|United States|Facebook, Inc.
