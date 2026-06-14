@@ -56,6 +56,7 @@ async def detect_alpn(ip: str, port: int, timeout: float = 2) -> str:
 
         ssl_obj = writer.get_extra_info("ssl_object")
         proto = ""
+
         if ssl_obj:
             proto = ssl_obj.selected_alpn_protocol()
 
@@ -75,7 +76,7 @@ async def https_check(
     ip: str,
     port: int,
     timeout: float = 3,
-    retries: int = 5
+    retries: int = 3
 ) -> Tuple[bool, Dict[str, Any] | None]:
 
     scheme = scheme_for(port)
@@ -89,8 +90,7 @@ async def https_check(
     final_headers = {}
 
     ssl_ctx = get_ssl_context()
-
-    headers = {"User-Agent": "ARISTA", "Connection": "close"}
+    headers = {"User-Agent": "ARISTA"}
 
     for attempt in range(retries):
         try:
@@ -103,13 +103,13 @@ async def https_check(
                 ssl=ssl_ctx
             ) as resp:
 
-                await resp.content.read(1)
+                await resp.release()
 
-                ttfb = int((time.perf_counter() - start) * 1000)
+                ttfb = (time.perf_counter() - start) * 1000
 
                 if attempt == 0:
                     final_status = resp.status
-                    final_headers = dict(resp.headers)
+                    final_headers = {}
 
                 status_codes.append(resp.status)
                 ttfb_list.append(ttfb)
@@ -124,8 +124,7 @@ async def https_check(
     if ok_count == 0:
         return False, None
 
-    avg_ttfb = int(sum(ttfb_list) / len(ttfb_list))
-
+    avg_ttfb = sum(ttfb_list) / len(ttfb_list)
     reliability = ok_count / retries
 
     alpn = ""
@@ -134,7 +133,7 @@ async def https_check(
         cache_key = f"{ip}:{port}"
         if cache_key in _ALPN_CACHE:
             alpn = _ALPN_CACHE[cache_key]
-        elif reliability >= 0.6:
+        elif reliability >= 0.8 and port == 443:
             alpn = await detect_alpn(ip, port, timeout)
 
     if port in TLS_PORTS:
@@ -170,7 +169,7 @@ async def https_check(
 
     return True, {
         "status": final_status,
-        "ttfb": avg_ttfb,
+        "ttfb": int(avg_ttfb),
         "proto": final_proto,
         "reliability": reliability,
         "score": score,
@@ -182,11 +181,9 @@ async def check_multiple_ips(
     ip_port_list: List[Tuple[str, int]],
     concurrency: int = 500,
     timeout: float = 3,
-    retries: int = 5
+    retries: int = 3
 ) -> Dict[Tuple[str, int], Tuple[bool, Dict[str, Any] | None]]:
 
-    effective_retries = 3 if retries > 3 else retries
-    
     sem = asyncio.Semaphore(concurrency)
 
     timeout_cfg = aiohttp.ClientTimeout(
@@ -197,11 +194,11 @@ async def check_multiple_ips(
 
     connector = aiohttp.TCPConnector(
         limit=concurrency,
-        limit_per_host=concurrency // 4,
+        limit_per_host=concurrency,
         ttl_dns_cache=300,
         ssl=False,
         enable_cleanup_closed=True,
-        force_close=True
+        keepalive_timeout=10
     )
 
     async with aiohttp.ClientSession(
@@ -217,27 +214,28 @@ async def check_multiple_ips(
                         ip,
                         port,
                         timeout,
-                        effective_retries
+                        retries
                     )
                 except:
                     return False, None
 
-        tasks = []
-        items = []
-        for ip, port in ip_port_list:
-            tasks.append(asyncio.create_task(worker(ip, port)))
-            items.append((ip, port))
+        tasks = [
+            asyncio.create_task(worker(ip, port))
+            for ip, port in ip_port_list
+        ]
 
         results = await asyncio.gather(*tasks, return_exceptions=True)
 
         output = {}
-        for (ip, port), result in zip(items, results):
+
+        for (ip, port), result in zip(ip_port_list, results):
             if isinstance(result, Exception):
                 output[(ip, port)] = (False, None)
             else:
                 output[(ip, port)] = result
 
         return output
+
 
 if __name__ == "__main__":
     ip_list = [
