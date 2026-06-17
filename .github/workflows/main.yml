@@ -3,7 +3,7 @@ name: ARISTA MATRIX PIPELINE
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 */2 * * *"
+    - cron: "0 * * * *"
 
 permissions:
   contents: write
@@ -41,24 +41,22 @@ jobs:
 
       - name: Restore Rolling State
         uses: actions/download-artifact@v4
-        continue-on-error: true
         with:
           name: arista-output
           path: output
+        continue-on-error: true
 
       - name: Prepare Bank
         run: |
           mkdir -p output
 
           if [ ! -s output/ip_bank.txt ]; then
-            python downloader.py || true
+            python downloader.py
           fi
 
           if [ ! -s output/clean_ips.txt ]; then
-            python cleaner.py || true
+            python cleaner.py
           fi
-
-          touch output/.keep
 
       - name: Save Rolling State
         uses: actions/upload-artifact@v4
@@ -87,14 +85,14 @@ jobs:
 
       - name: Restore State
         uses: actions/download-artifact@v4
-        continue-on-error: true
         with:
           name: arista-output
           path: output
+        continue-on-error: true
 
       - name: TCP Scan
         run: |
-          python main.py --tcp || true
+          python main.py --tcp
 
       - name: Save State
         uses: actions/upload-artifact@v4
@@ -123,14 +121,14 @@ jobs:
 
       - name: Restore State
         uses: actions/download-artifact@v4
-        continue-on-error: true
         with:
           name: arista-output
           path: output
+        continue-on-error: true
 
       - name: TLS Scan
         run: |
-          python main.py --tls || true
+          python main.py --tls
 
       - name: Save State
         uses: actions/upload-artifact@v4
@@ -159,14 +157,14 @@ jobs:
 
       - name: Restore State
         uses: actions/download-artifact@v4
-        continue-on-error: true
         with:
           name: arista-output
           path: output
+        continue-on-error: true
 
       - name: HTTPS Validation
         run: |
-          python main.py --https || true
+          python main.py --https
 
       - name: Save State
         uses: actions/upload-artifact@v4
@@ -195,14 +193,14 @@ jobs:
 
       - name: Restore State
         uses: actions/download-artifact@v4
-        continue-on-error: true
         with:
           name: arista-output
           path: output
+        continue-on-error: true
 
       - name: Fingerprint
         run: |
-          python main.py --fp || true
+          python main.py --fp
 
       - name: Save State
         uses: actions/upload-artifact@v4
@@ -231,14 +229,14 @@ jobs:
 
       - name: Restore State
         uses: actions/download-artifact@v4
-        continue-on-error: true
         with:
           name: arista-output
           path: output
+        continue-on-error: true
 
       - name: GEO
         run: |
-          python main.py --geo || true
+          python main.py --geo
 
       - name: Save State
         uses: actions/upload-artifact@v4
@@ -267,14 +265,14 @@ jobs:
 
       - name: Restore State
         uses: actions/download-artifact@v4
-        continue-on-error: true
         with:
           name: arista-output
           path: output
+        continue-on-error: true
 
       - name: Finalize
         run: |
-          python main.py --finalize || true
+          python main.py --finalize
 
       - name: Save Final State
         uses: actions/upload-artifact@v4
