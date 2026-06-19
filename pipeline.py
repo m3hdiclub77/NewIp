@@ -1,6 +1,7 @@
 import asyncio
 import os
 import random
+import sys
 
 from downloader import Downloader
 from exporter import Exporter
@@ -24,6 +25,8 @@ async def pipeline(cfg):
 
     shard_id = int(os.getenv("SHARD_ID", "0"))
 
+    print(f"[DEBUG] Starting shard {shard_id}")
+
     ckpt = Checkpoint(shard_id, cfg["checkpoint_every"])
     cache = Cache()
     https_cache = HTTPSCache()
@@ -36,11 +39,31 @@ async def pipeline(cfg):
         cfg["circuit_breaker_reset_sec"]
     )
 
+    print("[DEBUG] Downloading sources...")
     data = await Downloader.fetch_all(cfg["sources"])
 
     cidrs = []
-    for v in data.values():
-        cidrs.extend(v)
+    total_sources = 0
+    for url, ips in data.items():
+        if ips:
+            total_sources += 1
+            print(f"[DEBUG] Source {url}: {len(ips)} CIDRs")
+            cidrs.extend(ips)
+        else:
+            print(f"[WARN] Source {url}: EMPTY or failed")
+
+    print(f"[DEBUG] Total CIDRs collected: {len(cidrs)} from {total_sources} sources")
+
+    if not cidrs:
+        print("[ERROR] No CIDRs found from any source!")
+        sys.exit(1)
+
+    stream = CIDRStream(cidrs, cfg["sample_per_source"])
+
+    total_ips = 0
+    for _ in stream.stream():
+        total_ips += 1
+    print(f"[DEBUG] Total IPs to test: {total_ips}")
 
     stream = CIDRStream(cidrs, cfg["sample_per_source"])
 
@@ -137,9 +160,16 @@ async def pipeline(cfg):
             dedup.cleanup()
             await asyncio.sleep(300)
 
+    async def monitor():
+        while True:
+            await asyncio.sleep(10)
+            print(f"[MONITOR] Queue: {q.qsize()}, Workers: {len(workers)}, "
+                  f"TopK: {len(topk.heap)}, Quality: {quality_ok}/{quality_total}")
+
     prod = asyncio.create_task(producer())
     manager = asyncio.create_task(worker_manager())
     ckpt_task = asyncio.create_task(checkpoint_loop())
+    monitor_task = asyncio.create_task(monitor())
 
     await prod
     await q.join()
@@ -149,11 +179,14 @@ async def pipeline(cfg):
 
     manager.cancel()
     ckpt_task.cancel()
+    monitor_task.cancel()
 
     await asyncio.gather(*workers, return_exceptions=True)
-    await asyncio.gather(manager, ckpt_task, return_exceptions=True)
+    await asyncio.gather(manager, ckpt_task, monitor_task, return_exceptions=True)
 
     Exporter.save(topk.items(), shard_id)
+
+    print(f"[RESULT] Found {len(topk.heap)} IPs, Quality: {quality_ok}/{quality_total}")
 
     logger.info({
         "quality_score": quality_ok / max(1, quality_total),
