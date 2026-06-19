@@ -49,3 +49,11 @@ jobs:
         with:
           name: global
           path: output/global_best.txt
+
+      - name: Commit and push output
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add output/global_best.txt || true
+          git commit -m "Update IP list [skip ci]" || true
+          git push || true
