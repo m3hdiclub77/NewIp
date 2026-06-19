@@ -35,25 +35,31 @@ jobs:
   merge:
     needs: scan
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
       - uses: actions/download-artifact@v4
         with:
           path: output/
 
-      - run: python main.py
+      - run: |
+          python main.py
+          cat output/global_best.txt
 
       - uses: actions/upload-artifact@v4
         with:
           name: global
           path: output/global_best.txt
 
-      - name: Commit and push output
+      - name: Commit and push output to repository
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add output/global_best.txt || true
-          git commit -m "Update IP list [skip ci]" || true
-          git push || true
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add output/global_best.txt
+          git diff --staged --quiet || git commit -m "Update IP list"
+          git push
