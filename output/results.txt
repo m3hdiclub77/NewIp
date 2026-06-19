@@ -1,0 +1,9 @@
+149.154.164.26|443|302|382|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.164.25|443|302|370|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.164.24|443|302|374|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.137|443|302|384|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.165.133|443|302|372|http/1.1|1.0|0|unknown|Netherlands|Telegram Messenger INC
+149.154.170.96|443|403|1021|http/1.1|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.170.100|443|403|893|http/1.1|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.170.200|443|403|801|http/1.1|1.0|0|unknown|Singapore|Telegram Messenger INC
+149.154.174.100|443|0|142|http/1.1|0.5|0|unknown|United States|Telegram Messenger INC
