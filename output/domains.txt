@@ -22,7 +22,6 @@ git.doclast.com
 github.com
 gmpg.org
 grafana.com
-grafana.kifabzar.com
 host.didgah.cloud
 httpd.apache.org
 idnplay.xyz
@@ -41,7 +40,6 @@ mail.iserver24.com
 mail.klevers-aryana.com
 mail.medilinkltd.com
 mail.niksardpouya.com
-mail.niktak.com
 mail.uniq24.com
 mail.unv.ir
 neon.dev
