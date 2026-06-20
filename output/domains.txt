@@ -1,7 +1,6 @@
 5428.ee
 about.gitlab.com
 api.w.org
-app.element.io
 assets.plesk.com
 avaneed.com
 bios.name
@@ -20,7 +19,6 @@ forum.gitlab.com
 forum.soft98.ir
 git.doclast.com
 github.com
-gmpg.org
 grafana.com
 host.didgah.cloud
 httpd.apache.org
@@ -36,10 +34,9 @@ mail.didgahweb.com
 mail.eastcool.com
 mail.hamta-gp.com
 mail.icdco.ir
-mail.iserver24.com
-mail.klevers-aryana.com
-mail.medilinkltd.com
+mail.nikarta.com
 mail.niksardpouya.com
+mail.niktak.com
 mail.uniq24.com
 mail.unv.ir
 neon.dev
@@ -48,6 +45,7 @@ oss.maxcdn.com
 performance.now
 php.avaneed.com
 plesk.com
+portal.eastcool.com
 rankmath.com
 react.dev
 s.w.org
@@ -63,7 +61,6 @@ talk.plesk.com
 text.style.top
 this.media
 twitter.com
-win1.iserver24.net
 www.2ba.re
 www.facebook.com
 www.google.com
