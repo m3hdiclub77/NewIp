@@ -1,5 +1,3 @@
-import os
-
 RESULT_FILE = "output/results.txt"
 HTTPS_FILE = "output/https_live.txt"
 BEST_FILE = "output/best_ips.txt"
@@ -375,14 +373,6 @@ def load_previous_best_ips():
     return previous
 
 
-def filter_incomplete_items(items):
-    return [
-        item for item in items
-        if item.get('https') and 
-        item['https'].get('ttfb', -1) > 0
-    ]
-
-
 def merge_and_limit(new_items, previous_items):
     combined = []
 
@@ -435,9 +425,7 @@ def rank_results():
         item["score"] = score(item, https_info)
         new_scored_items.append(item)
 
-    filtered_items = filter_incomplete_items(new_scored_items)
-
-    merged_items = merge_and_limit(filtered_items, previous_best)
+    merged_items = merge_and_limit(new_scored_items, previous_best)
 
     os.makedirs("output", exist_ok=True)
 
