@@ -67,7 +67,6 @@ jobs:
       - name: Clean Temp Files
         run: |
           mkdir -p output
-          # حذف فایل‌های موقت برای جلوگیری از بزرگ شدن artifact
           rm -f output/ip_bank.txt output/clean_ips.txt output/current_part.txt output/scanned_cache.txt
           rm -f output/results.txt output/domains.txt output/domains_raw.txt 2>/dev/null || true
 
@@ -119,15 +118,6 @@ jobs:
           name: arista-permanent
           path: output
         continue-on-error: true
-
-      - name: Ensure Temp Files
-        run: |
-          mkdir -p output
-          # اطمینان از وجود clean_ips.txt از prepare
-          if [ ! -s output/clean_ips.txt ]; then
-            python downloader.py
-            python cleaner.py
-          fi
 
       - name: TCP Scan
         run: python main.py --tcp
