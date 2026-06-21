@@ -1,3 +1,4 @@
+# cursor.py
 import os
 
 CURSOR_FILE = "output/scan_cursor.txt"
