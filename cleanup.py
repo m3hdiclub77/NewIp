@@ -1,5 +1,8 @@
+# cleanup.py
 import os
 import json
+
+from scanned_ips import load_scanned_ips, save_scanned_ips
 
 def cleanup_output():
     files_to_keep = [
@@ -53,6 +56,11 @@ def cleanup_output():
                     json.dump(data, fp)
             except:
                 pass
+    
+    scanned = load_scanned_ips()
+    if len(scanned) > 50000:
+        print(f"SCANNED IPS TOO LARGE ({len(scanned)}) - RESETTING")
+        save_scanned_ips(set())
 
 if __name__ == "__main__":
     cleanup_output()
