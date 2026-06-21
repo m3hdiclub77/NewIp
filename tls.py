@@ -1,57 +1,23 @@
-import ssl
-import socket
-import hashlib
-import json
+TLS_PORTS = {443, 8443, 2053, 2083, 2087, 2096}
 
-def load_config():
-    with open("config.json", "r", encoding="utf-8") as f:
-        return json.load(f)
+def is_tls_port(port):
+    return port in TLS_PORTS
 
-def cert_meta(cert_bin, cert):
-    try:
-        sha256 = hashlib.sha256(cert_bin).hexdigest()
-    except:
-        sha256 = ""
-    issuer = ""
-    expire = ""
-    try:
-        issuer = dict(x[0] for x in cert["issuer"]).get("organizationName", "")
-    except:
-        pass
-    try:
-        expire = cert.get("notAfter", "")
-    except:
-        pass
-    return {
-        "issuer": issuer,
-        "expire": expire,
-        "sha256": sha256
-    }
+def safe_lower(value):
+    if value is None:
+        return ""
+    return str(value).strip().lower()
 
-def tls_check(ip, port, timeout=3):
-    cfg = load_config()
-    sni_hosts = cfg.get("sni_hosts", [])
-    ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
-    try:
-        ctx.set_alpn_protocols(["h2", "http/1.1"])
-    except:
-        pass
+def unique_sorted(values):
+    return sorted(set(values))
 
-    for sni in sni_hosts:
-        try:
-            with socket.create_connection((ip, port), timeout=timeout) as sock:
-                with ctx.wrap_socket(sock, server_hostname=sni) as ssock:
-                    cert = ssock.getpeercert()
-                    cert_bin = ssock.getpeercert(binary_form=True)
-                    meta = cert_meta(cert_bin, cert)
-                    return True, {
-                        "cert": cert,
-                        "meta": meta,
-                        "alpn": ssock.selected_alpn_protocol(),
-                        "sni": sni
-                    }
-        except:
-            continue
-    return False, None
+def read_lines(path):
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return f.read().splitlines()
+    except:
+        return []
+
+def write_lines(path, lines):
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
