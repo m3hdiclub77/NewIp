@@ -93,7 +93,6 @@ gmpg.org
 google.ml
 google.sn
 grafana.com
-grafana.kifabzar.com
 host.didgah.cloud
 httpd.apache.org
 idnplay.xyz
@@ -128,10 +127,8 @@ livestream-edgetee-ws-upload-shv-02-dfw5.facebook.com
 mail.abniehafarin.com
 mail.didgahcrm.com
 mail.didgahweb.com
-mail.eastcool.com
-mail.hamta-gp.com
-mail.icdco.ir
 mail.iserver24.com
+mail.klevers-aryana.com
 mail.medilinkltd.com
 mail.nikarta.com
 mail.niksardpouya.com
@@ -139,9 +136,7 @@ mail.niktak.com
 mail.uniq24.com
 mail.unv.ir
 microsite-edge-shv-01-lax3.facebook.com
-microsite-edge-shv-02-ccu1.facebook.com
 mx11.support.stel.com
-mx110.telegram.org
 mx12.support.stel.com
 neon.dev
 ogp.me
