@@ -4,8 +4,8 @@ import json
 from datetime import datetime, timedelta
 
 from downloader import download_sources
-from cleaner import clean_ips
-from splitter import split_file
+from cleaner import clean_ips, clean_ips_force
+from splitter import split_file, reset_splitter
 from cursor import reset_cursor
 
 from scanner import (
@@ -20,7 +20,12 @@ from domains import extract_domains
 from validator import validate_domains
 from ranker import rank_results
 
-from cache import optimize_stage_files, compact_cache_files
+from cache import (
+    optimize_stage_files,
+    compact_cache_files,
+    reset_stage_files,
+    migrate_live_bank_to_cache
+)
 
 OUTPUT_DIR = "output"
 
@@ -76,10 +81,15 @@ def prepare():
     compact_cache_files()
 
     if should_update_bank():
+        print("RESETTING SPLITTER AND STAGE FILES")
+        reset_splitter()
+        reset_stage_files()
+        reset_cursor()
+
         print("DOWNLOAD START")
         download_sources()
         print("CLEAN START")
-        clean_ips()
+        clean_ips_force()
         reset_cursor()
         print("BANK UPDATED - CURSOR RESET")
 
@@ -246,6 +256,29 @@ def run_finalize():
     )
 
 
+def run_reset():
+    ensure_output()
+
+    print("RESETTING ALL FILES")
+    reset_splitter()
+    reset_stage_files()
+    reset_cursor()
+
+    if os.path.exists("output/ip_bank.txt"):
+        try:
+            os.remove("output/ip_bank.txt")
+        except:
+            pass
+
+    if os.path.exists("output/clean_ips.txt"):
+        try:
+            os.remove("output/clean_ips.txt")
+        except:
+            pass
+
+    print("RESET COMPLETE")
+
+
 def main():
     ensure_output()
 
@@ -281,6 +314,11 @@ def main():
         action="store_true"
     )
 
+    parser.add_argument(
+        "--reset",
+        action="store_true"
+    )
+
     args = parser.parse_args()
 
     load_config()
@@ -289,7 +327,10 @@ def main():
         "ARISTA START"
     )
 
-    if args.tcp:
+    if args.reset:
+        run_reset()
+
+    elif args.tcp:
         run_tcp()
 
     elif args.tls:
