@@ -490,7 +490,8 @@ async def https_worker_async(
     timeout = min(
         cfg.get(
             "timeout",
-            3        ),
+            3
+        ),
         2
     )
 
