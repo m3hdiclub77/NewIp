@@ -67,12 +67,9 @@ jobs:
       - name: Prepare Bank
         run: |
           mkdir -p output
-          if [ ! -s output/ip_bank.txt ]; then
-            python downloader.py
-          fi
-          if [ ! -s output/clean_ips.txt ]; then
-            python cleaner.py
-          fi
+          python main.py --reset
+          python downloader.py
+          python cleaner.py
 
       - name: Compact Cache
         run: |
@@ -84,7 +81,7 @@ jobs:
           name: arista-output
           path: output
           overwrite: true
-          retention-days: 3
+          retention-days: 1
 
   tcp:
     needs: prepare
@@ -117,7 +114,7 @@ jobs:
           name: arista-output
           path: output
           overwrite: true
-          retention-days: 3
+          retention-days: 1
 
   tls:
     needs: tcp
@@ -150,7 +147,7 @@ jobs:
           name: arista-output
           path: output
           overwrite: true
-          retention-days: 3
+          retention-days: 1
 
   https:
     needs: tls
@@ -183,7 +180,7 @@ jobs:
           name: arista-output
           path: output
           overwrite: true
-          retention-days: 3
+          retention-days: 1
 
   fingerprint:
     needs: https
@@ -216,7 +213,7 @@ jobs:
           name: arista-output
           path: output
           overwrite: true
-          retention-days: 3
+          retention-days: 1
 
   geo:
     needs: fingerprint
@@ -249,7 +246,7 @@ jobs:
           name: arista-output
           path: output
           overwrite: true
-          retention-days: 3
+          retention-days: 1
 
   finalize:
     needs: geo
@@ -282,7 +279,7 @@ jobs:
           name: arista-output
           path: output
           overwrite: true
-          retention-days: 3
+          retention-days: 1
 
       - name: Commit Final Output
         run: |
