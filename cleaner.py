@@ -196,5 +196,17 @@ def clean_ips():
     )
 
 
+def clean_ips_force():
+    ensure_output()
+
+    if os.path.exists(OUTPUT_FILE):
+        try:
+            os.remove(OUTPUT_FILE)
+        except:
+            pass
+
+    clean_ips()
+
+
 if __name__ == "__main__":
     clean_ips()
