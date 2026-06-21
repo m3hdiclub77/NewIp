@@ -1,4 +1,3 @@
-# main.py
 import os
 import argparse
 import json
@@ -7,7 +6,8 @@ from datetime import datetime, timedelta
 from downloader import download_sources
 from cleaner import clean_ips
 from splitter import split_file
-from cursor import reset_cursor
+from cursor import reset_cursor, reset_source_index, load_source_index, save_source_index
+from cache import reset_for_new_scan, compact_cache_files
 
 from scanner import (
     tcp_scan,
@@ -21,25 +21,55 @@ from domains import extract_domains
 from validator import validate_domains
 from ranker import rank_results
 
-from cache import optimize_stage_files, compact_cache_files, reset_all_caches
+from cache import optimize_stage_files, compact_cache_files
 
 OUTPUT_DIR = "output"
 
+
 def ensure_output():
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    os.makedirs(
+        OUTPUT_DIR,
+        exist_ok=True
+    )
+
 
 def load_config():
-    with open("config.json", "r", encoding="utf-8") as f:
+    with open(
+        "config.json",
+        "r",
+        encoding="utf-8"
+    ) as f:
         return json.load(f)
 
+
 def exists(path):
-    return os.path.exists(path) and os.path.getsize(path) > 0
+    return (
+        os.path.exists(path)
+        and
+        os.path.getsize(path) > 0
+    )
+
 
 def should_update_bank():
     bank_file = "output/ip_bank.txt"
     clean_file = "output/clean_ips.txt"
+    source_index = load_source_index()
+    cfg = load_config()
+    sources = cfg.get("sources", [])
+    ips_per_source = cfg.get("ips_per_source", 5000)
+    
+    if source_index >= len(sources):
+        reset_source_index()
+        source_index = 0
+    
+    current_source = sources[source_index] if source_index < len(sources) else None
+    
+    if current_source is None:
+        return True
+    
     if not exists(bank_file) or not exists(clean_file):
         return True
+    
     try:
         mtime = os.path.getmtime(bank_file)
         last_update = datetime.fromtimestamp(mtime)
@@ -52,111 +82,306 @@ def should_update_bank():
     except:
         return True
 
+
+def get_next_source():
+    cfg = load_config()
+    sources = cfg.get("sources", [])
+    ips_per_source = cfg.get("ips_per_source", 5000)
+    source_index = load_source_index()
+    
+    if source_index >= len(sources):
+        reset_source_index()
+        source_index = 0
+    
+    current_source = sources[source_index] if source_index < len(sources) else None
+    
+    next_index = source_index + 1
+    if next_index >= len(sources):
+        next_index = 0
+    
+    save_source_index(next_index)
+    
+    return current_source, next_index
+
+
 def prepare():
     ensure_output()
+
     print("COMPACTING CACHE FILES")
     compact_cache_files()
+
     if should_update_bank():
-        print("RESETTING ALL CACHES")
-        reset_all_caches()
+        cfg = load_config()
+        source_index = load_source_index()
+        sources = cfg.get("sources", [])
+        ips_per_source = cfg.get("ips_per_source", 5000)
+        
+        if source_index >= len(sources):
+            reset_source_index()
+            source_index = 0
+        
+        current_source = sources[source_index] if source_index < len(sources) else None
+        
+        if current_source is None:
+            current_source = sources[0] if sources else None
+        
+        print(f"DOWNLOADING FROM SOURCE {source_index}: {current_source}")
+        reset_for_new_scan()
+        
+        original_sources = cfg.get("sources", [])
+        cfg["sources"] = [current_source]
+        
+        with open("config.json", "w", encoding="utf-8") as f:
+            json.dump(cfg, f, indent=4)
+        
         print("DOWNLOAD START")
         download_sources()
         print("CLEAN START")
         clean_ips()
         reset_cursor()
         print("BANK UPDATED - CURSOR RESET")
+        
+        cfg["sources"] = original_sources
+        with open("config.json", "w", encoding="utf-8") as f:
+            json.dump(cfg, f, indent=4)
+        
+        next_index = source_index + 1
+        if next_index >= len(sources):
+            next_index = 0
+        save_source_index(next_index)
+        print(f"NEXT SOURCE INDEX: {next_index}")
+
 
 def run_tcp():
     prepare()
-    print("ROLLING SPLIT")
+
+    print(
+        "ROLLING SPLIT"
+    )
+
     input_file = split_file()
-    if not exists(input_file):
-        print("NO PART")
+
+    if not exists(
+        input_file
+    ):
+        print(
+            "NO PART"
+        )
         return
-    print("TCP START")
-    tcp_scan(input_file)
-    print("TCP DONE")
+
+    print(
+        "TCP START"
+    )
+
+    tcp_scan(
+        input_file
+    )
+
+    print(
+        "TCP DONE"
+    )
+
 
 def run_tls():
     prepare()
-    if not exists("output/tcp_live.txt"):
-        print("NO TCP CACHE")
+
+    if not exists(
+        "output/tcp_live.txt"
+    ):
+        print(
+            "NO TCP CACHE"
+        )
         return
-    print("TLS START")
+
+    print(
+        "TLS START"
+    )
+
     tls_scan()
-    print("TLS DONE")
+
+    print(
+        "TLS DONE"
+    )
+
 
 def run_https():
     prepare()
-    if not exists("output/tls_live.txt"):
-        print("NO TLS CACHE")
+
+    if not exists(
+        "output/tls_live.txt"
+    ):
+        print(
+            "NO TLS CACHE"
+        )
         return
-    print("HTTPS START")
+
+    print(
+        "HTTPS START"
+    )
+
     https_scan()
-    print("HTTPS DONE")
+
+    print(
+        "HTTPS DONE"
+    )
+
 
 def run_fp():
     prepare()
-    if not exists("output/https_live.txt"):
-        print("NO HTTPS CACHE")
+
+    if not exists(
+        "output/https_live.txt"
+    ):
+        print(
+            "NO HTTPS CACHE"
+        )
         return
-    print("FP START")
+
+    print(
+        "FP START"
+    )
+
     fingerprint_scan()
-    print("FP DONE")
+
+    print(
+        "FP DONE"
+    )
+
 
 def run_geo():
     prepare()
-    if not exists("output/fingerprint_results.txt"):
-        print("NO FP CACHE")
+
+    if not exists(
+        "output/fingerprint_results.txt"
+    ):
+        print(
+            "NO FP CACHE"
+        )
         return
-    print("GEO START")
+
+    print(
+        "GEO START"
+    )
+
     geo_scan()
-    print("GEO DONE")
+
+    print(
+        "GEO DONE"
+    )
+
 
 def run_finalize():
     prepare()
-    if not exists("output/results.txt"):
-        print("NO RESULTS")
+
+    if not exists(
+        "output/results.txt"
+    ):
+        print(
+            "NO RESULTS"
+        )
         return
-    print("OPTIMIZE CACHE")
+
+    print(
+        "OPTIMIZE CACHE"
+    )
+
     optimize_stage_files()
-    if exists("output/tls_live.txt"):
-        print("DOMAIN EXTRACT")
+
+    if exists(
+        "output/tls_live.txt"
+    ):
+        print(
+            "DOMAIN EXTRACT"
+        )
         extract_domains()
-    if exists("output/domains_raw.txt"):
-        print("DOMAIN VALIDATE")
+
+    if exists(
+        "output/domains_raw.txt"
+    ):
+        print(
+            "DOMAIN VALIDATE"
+        )
         validate_domains()
-    print("RANK START")
+
+    print(
+        "RANK START"
+    )
+
     rank_results()
-    print("FINAL DONE")
+
+    print(
+        "FINAL DONE"
+    )
+
 
 def main():
     ensure_output()
+
     parser = argparse.ArgumentParser()
-    parser.add_argument("--tcp", action="store_true")
-    parser.add_argument("--tls", action="store_true")
-    parser.add_argument("--https", action="store_true")
-    parser.add_argument("--fp", action="store_true")
-    parser.add_argument("--geo", action="store_true")
-    parser.add_argument("--finalize", action="store_true")
+
+    parser.add_argument(
+        "--tcp",
+        action="store_true"
+    )
+
+    parser.add_argument(
+        "--tls",
+        action="store_true"
+    )
+
+    parser.add_argument(
+        "--https",
+        action="store_true"
+    )
+
+    parser.add_argument(
+        "--fp",
+        action="store_true"
+    )
+
+    parser.add_argument(
+        "--geo",
+        action="store_true"
+    )
+
+    parser.add_argument(
+        "--finalize",
+        action="store_true"
+    )
+
     args = parser.parse_args()
+
     load_config()
-    print("ARISTA START")
+
+    print(
+        "ARISTA START"
+    )
+
     if args.tcp:
         run_tcp()
+
     elif args.tls:
         run_tls()
+
     elif args.https:
         run_https()
+
     elif args.fp:
         run_fp()
+
     elif args.geo:
         run_geo()
+
     elif args.finalize:
         run_finalize()
+
     else:
         run_tcp()
-    print("ARISTA DONE")
+
+    print(
+        "ARISTA DONE"
+    )
+
 
 if __name__ == "__main__":
     main()
