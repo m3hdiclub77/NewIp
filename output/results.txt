@@ -1,4 +1,0 @@
-31.13.91.42|443|407|428|http/1.1|1.0|0|unknown|Brazil|Facebook, Inc.
-31.13.91.42|8443|407|416|http/1.1|1.0|0|unknown|Brazil|Facebook, Inc.
-57.144.208.11|443|407|664|http/1.1|1.0|0|unknown|India|Facebook, Inc.
-57.144.208.11|8443|407|657|http/1.1|1.0|0|unknown|India|Facebook, Inc.
