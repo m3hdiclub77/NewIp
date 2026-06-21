@@ -85,6 +85,7 @@ async def https_check(
     ok_count = 0
     ttfb_list = []
     status_codes = []
+    headers_list = []
 
     final_status = 0
     final_headers = {}
@@ -109,10 +110,11 @@ async def https_check(
 
                 if attempt == 0:
                     final_status = resp.status
-                    final_headers = {}
+                    final_headers = dict(resp.headers)
 
                 status_codes.append(resp.status)
                 ttfb_list.append(ttfb)
+                headers_list.append(dict(resp.headers))
                 ok_count += 1
 
                 if ok_count >= 2 and all(c in {200, 204, 206, 301, 302} for c in status_codes):
@@ -126,6 +128,13 @@ async def https_check(
 
     avg_ttfb = sum(ttfb_list) / len(ttfb_list)
     reliability = ok_count / retries
+
+    if headers_list:
+        combined_headers = {}
+        for h in headers_list:
+            combined_headers.update(h)
+        if not final_headers:
+            final_headers = combined_headers
 
     alpn = ""
 
