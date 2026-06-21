@@ -43,6 +43,7 @@ mail.medilinkltd.com
 mail.nikarta.com
 mail.niksardpouya.com
 mail.uniq24.com
+mail.unv.ir
 neon.dev
 ogp.me
 oss.maxcdn.com
@@ -52,6 +53,9 @@ plesk.com
 portal.eastcool.com
 rankmath.com
 react.dev
+s.w.org
+schema.org
+sentry.io
 server.kplusi.org
 soft98.ir
 soroshan.eastcool.com
