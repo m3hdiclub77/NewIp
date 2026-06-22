@@ -33,8 +33,6 @@ STABLE_PORT_BONUS = 1
 
 MAX_OUTPUT_IPS = 4000
 
-TLS_PORTS = {443, 8443, 2053, 2083, 2087, 2096}
-
 
 def load_https():
     data = {}
@@ -115,37 +113,30 @@ def parse_line(line):
 
     parts = line.split("|")
 
-    if len(parts) < 10:
+    if len(parts) < 8:
         return None
 
     try:
-        ip = parts[0]
-        port = int(parts[1])
         latency = int(parts[2])
-        status = int(parts[3])
-        ttfb = int(parts[4])
-        proto = parts[5]
-        reliability = float(parts[6])
-        ws = parts[7]
-        cdn = parts[8]
-        country = parts[9]
-        provider = parts[10] if len(parts) > 10 else "?"
+    except:
+        latency = 9999
+
+    try:
+        port = int(parts[1])
     except:
         return None
 
+    tls = parts[3] == "True"
+
     return {
-        "ip": ip,
+        "ip": parts[0],
         "port": port,
         "latency": latency,
-        "status": status,
-        "ttfb": ttfb,
-        "proto": proto,
-        "reliability": reliability,
-        "ws": ws,
-        "cdn": cdn,
-        "country": country,
-        "provider": provider,
-        "tls": port in TLS_PORTS
+        "tls": tls,
+        "cdn": parts[4],
+        "country": parts[5],
+        "provider": parts[6],
+        "alpn": parts[7]
     }
 
 
@@ -308,7 +299,9 @@ def load_results():
                     f'{item["port"]}'
                 )
 
-                if key in seen:
+                old = seen
+
+                if key in old:
                     continue
 
                 seen.add(key)
