@@ -354,8 +354,8 @@ def load_previous_best_ips():
                 line = line.strip()
                 if not line:
                     continue
-                parts = line.split()
-                if len(parts) < 2:
+                parts = line.split("|")
+                if len(parts) < 10:
                     continue
                 ip_port = parts[0]
                 try:
@@ -444,15 +444,15 @@ def rank_results():
             provider = item.get("provider", "?")
 
             f.write(
-                f'{item["ip"]}:{item["port"]} '
-                f'S={item["score"]} '
-                f'{latency}ms '
-                f'TTFB={ttfb} '
-                f'PROTO={proto} '
-                f'REL={rel} '
-                f'CDN={cdn} '
-                f'ALPN={alpn} '
-                f'{country} '
+                f'{item["ip"]}:{item["port"]}|'
+                f'S={item["score"]}|'
+                f'{latency}ms|'
+                f'TTFB={ttfb}|'
+                f'PROTO={proto}|'
+                f'REL={rel}|'
+                f'CDN={cdn}|'
+                f'ALPN={alpn}|'
+                f'{country}|'
                 f'{provider}\n'
             )
 
