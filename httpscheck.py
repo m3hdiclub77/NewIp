@@ -133,8 +133,8 @@ async def https_check(
         cache_key = f"{ip}:{port}"
         if cache_key in _ALPN_CACHE:
             alpn = _ALPN_CACHE[cache_key]
-        elif reliability >= 0.8 and port == 443:
-            alpn = await detect_alpn(ip, port, timeout)
+        elif reliability >= 0.5:
+            alpn = await detect_alpn(ip, port, timeout/2)
 
     if port in TLS_PORTS:
         final_proto = alpn if alpn else "http/1.1"
