@@ -124,14 +124,16 @@ def detect_cdn(ip=None, port=None, headers=None):
     )
 
     try:
-        r = requests.get(
-            f"{scheme}://{ip}:{port}",
-            timeout=4,
-            verify=False,
-            allow_redirects=True
-        )
+        with requests.Session() as session:
+            r = session.get(
+                f"{scheme}://{ip}:{port}",
+                timeout=4,
+                verify=False,
+                allow_redirects=True,
+                headers={"User-Agent": "ARISTA"}
+            )
 
-        return detect_cdn_from_headers(r.headers)
+            return detect_cdn_from_headers(r.headers)
 
     except:
         pass
